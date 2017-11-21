@@ -1,0 +1,16 @@
+---
+domoticz_prerequisite:
+  - build-essential
+  - cmake
+  - git
+  - libboost-dev
+  - libboost-thread-dev
+  - libboost-system-dev
+  - libsqlite3-dev
+  - curl
+  - libcurl4-openssl-dev
+  - libssl-dev
+  - libusb-dev
+  - zlib1g-dev
+  - python3-dev
+  - libudev-dev

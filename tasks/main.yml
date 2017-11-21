@@ -1,0 +1,6 @@
+---
+- include_tasks: load-variables.yml
+- include_tasks: setup-prerequisite.yml
+- include_tasks: build-zwave.yml
+  when: domoticz_zwave_support
+- include_tasks: build-domoticz.yml

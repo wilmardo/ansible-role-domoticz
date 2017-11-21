@@ -1,0 +1,24 @@
+---
+# The directory where the downloaded files will be placed
+domoticz_download_dir: "{{ ansible_env.HOME }}/domoticz"
+
+# The version of Domoticz to be installed (accepts same arguments as version parameter of git module)
+domoticz_version: 3.8153
+# The Domoticz download url
+domoticz_url: "https://github.com/domoticz/domoticz.git"
+
+# The user which the Domoticz daemon runs as
+domoticz_user: domoticz
+# The group which the Domoticz daemon runs as
+domoticz_group: domoticz
+# The port for Domoticz to run http (-www daemon option)
+domoticz_port: 8080
+# The port for Domoticz to run https (-sslwww daemon option)
+domoticz_sslport: 443
+
+# Add support for ZWave
+domoticz_zwave_support: no
+# The version of Open-ZWave to be installed (accepts same arguments as version parameter of git module)
+zwave_version: master
+# The Open-ZWave git url
+zwave_url: "https://github.com/OpenZWave/open-zwave.git"

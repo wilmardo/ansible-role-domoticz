@@ -1,0 +1,11 @@
+---
+- name: Create domoticz group
+  group:
+    name: "{{ domoticz_group }}"
+    state: present
+
+- name: Create domoticz user
+  user:
+    name: "{{ domoticz_user }}"
+    groups: "{{ domoticz_group }}"
+    state: present

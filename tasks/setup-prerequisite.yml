@@ -1,0 +1,33 @@
+---
+- block:
+
+    - name: Install prerequisites with apt
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items: "{{ domoticz_prerequisite }}"
+
+  when: ansible_os_family == "Debian"
+
+- block:
+
+    - name: Install prerequisites with yum
+      yum:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items: "{{ domoticz_prerequisite }}"
+
+  when: ansible_os_family == "RedHat"
+
+- name: Install packages for Centos 6 to be able to validate SNI
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-urllib3
+    - pyOpenSSL
+    - python-ndg_httpsclient
+    - python-pyasn1
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
