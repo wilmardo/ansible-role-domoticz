@@ -9,9 +9,14 @@
       wait_for:
         port: "{{ domoticz_port }}"
 
-    - name: Test Domoticz webinterface
+    - name: Test Domoticz HTTP webinterface
       uri:
         url: "http://{{ inventory_hostname }}:{{ domoticz_port }}"
+
+    - name: Test Domoticz HTTPS webinterface
+      uri:
+        url: "https://{{ inventory_hostname }}:{{ domoticz_https_port }}"
+      when: domoticz_https
 
     - name: Grab system Logs
       shell: "PAGER=cat journalctl -xn || cat /var/log/messages || cat /var/log/syslog"

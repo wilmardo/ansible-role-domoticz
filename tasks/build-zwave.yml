@@ -6,18 +6,17 @@
     version: "{{ zwave_version }}"
   register: openzwave_clone
 
-- block:
+- name: Create symlink open-zwave-read-only
+  file:
+    src: "{{ domoticz_download_dir }}/open-zwave"
+    dest: "{{ domoticz_download_dir }}/open-zwave-read-only"
+    owner: "{{ domoticz_user }}"
+    group: "{{ domoticz_group }}"
+    state: link
 
-  - name: Create symlink open-zwave-read-only
-    file:
-      src: "{{ domoticz_download_dir }}/open-zwave"
-      dest: "{{ domoticz_download_dir }}/open-zwave-read-only"
-      state: link
-
-  - name: Make Open-ZWave
-    command: make
-    args:
-      chdir: "{{ domoticz_download_dir }}/open-zwave"
-      creates: "{{ domoticz_download_dir }}/open-zwave/MinOZW"
-
+- name: Make Open-ZWave
+  command: make
+  args:
+    chdir: "{{ domoticz_download_dir }}/open-zwave"
+    creates: "{{ domoticz_download_dir }}/open-zwave/MinOZW"
   when: openzwave_clone.changed

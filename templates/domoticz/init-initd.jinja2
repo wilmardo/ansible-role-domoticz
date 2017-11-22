@@ -18,11 +18,15 @@ USERNAME={{ domoticz_user }}
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
-DAEMON={{ domoticz_download_dir }}/domoticz/$NAME
+DAEMON={{ domoticz_download_dir }}/{{ domoticz_src }}/$NAME
 DAEMON_ARGS="-daemon"
 #DAEMON_ARGS="$DAEMON_ARGS -daemonname $NAME -pidfile $PIDFILE"
 DAEMON_ARGS="$DAEMON_ARGS -www {{ domoticz_port }}"
-DAEMON_ARGS="$DAEMON_ARGS -sslwww {{ domoticz_sslport }}"
+{% if domoticz_https %}
+DAEMON_ARGS="$DAEMON_ARGS -sslwww {{ domoticz_https_port }} {% if domoticz_ssl_cert != "" %}-sslcert {{ domoticz_ssl_cert }}{% endif %}"
+{% else %}
+DAEMON_ARGS="$DAEMON_ARGS -sslwww 0"
+{% endif %}
 #DAEMON_ARGS="$DAEMON_ARGS -log /tmp/domoticz.txt"
 #DAEMON_ARGS="$DAEMON_ARGS -syslog"
 
