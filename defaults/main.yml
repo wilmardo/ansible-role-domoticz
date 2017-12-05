@@ -11,11 +11,11 @@ domoticz_src: "domoticz"
 domoticz_user: domoticz
 # The group which the Domoticz daemon runs as
 domoticz_group: domoticz
-# The port for Domoticz to run http (-www daemon option)
+# The port for Domoticz to run http (-www daemon option). For ports <1024 root privileges are required, better to setup a reverse proxy with for example Nginx
 domoticz_port: 8080
-# Enable https for Domoticz
+# Enable/Disable https for Domoticz
 domoticz_https: yes
-# The port for Domoticz to run https (-sslwww daemon option)
+# The port for Domoticz to run https (-sslwww daemon option). For ports <1024 root privileges are required, better to setup a reverse proxy with for example Nginx
 domoticz_https_port: 8081
 # Path to SSL certificate, if left default the server_cert.pem from Domoticz will be used (-sslcert daemon option)
 domoticz_ssl_cert: "{{ domoticz_download_dir }}/{{ domoticz_src }}/server_cert.pem"

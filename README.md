@@ -1,7 +1,7 @@
 # wilmardo.nrpe-client
 
-[![Build Status](https://travis-ci.org/wilmardo/ansible-role-nrpe-client.svg?branch=master)](https://travis-ci.org/wilmardo/ansible-role-nrpe-client)
-[![Galaxy](https://img.shields.io/badge/galaxy-wilmardo.nrpe--client-blue.svg)](https://galaxy.ansible.com/wilmardo/nrpe-client/)
+[![Build Status](https://travis-ci.org/wilmardo/ansible-role-domoticz.svg?branch=master)](https://travis-ci.org/wilmardo/ansible-role-domoticz)
+[![Galaxy](https://img.shields.io/badge/galaxy-wilmardo.domoticz-blue.svg)](https://galaxy.ansible.com/wilmardo/domoticz/)
 
 This role installs the NRPE client on a monitoring server. You can use this role as an addon to the [wilmardo/nagios](https://galaxy.ansible.com/wilmardo/nagios/) role.
 
@@ -13,52 +13,55 @@ None.
 
 ### Default usage
 
-For default usage of this role you only need to define the following:
-```yaml
-# Sets the hosts allowed to connect to NRPE
-nrpe_allowed_hosts:
-  - 127.0.0.1
-```
+As default Domoticz is installed and running http on port 8080 and https on port 8081 with the default certificate. 
+If you want to adapt this to your needs look at the [Advanced usage](#Advanced usage) section.
 
 ### Advanced usage
 
 For more advanced usage the following variables are available:
 ```yaml
-# The directory where the downloaded files will be placed and extracted.
-download_dir: "{{ ansible_env.HOME }}/nrpe"
+# The directory where the downloaded files will be placed
+domoticz_download_dir: "/home/domoticz"
 
-# The version of NRPE to be installed
-nrpe_version: 3.2.1
+# The Domoticz download url
+domoticz_url: "https://releases.domoticz.com/releases/release/domoticz_linux_x86_64.tgz"
+# The name of the untarred Domoticz directory
+domoticz_src: "domoticz"
 
-# The NRPE download url
-nrpeurl: "https://github.com/NagiosEnterprises/nrpe/archive/nrpe-{{ nrpe_version }}.tar.gz"
+# The user which the Domoticz daemon runs as
+domoticz_user: domoticz
+# The group which the Domoticz daemon runs as
+domoticz_group: domoticz
+# The port for Domoticz to run http (-www daemon option). For ports <1024 root privileges are required, better to setup a reverse proxy with for example Nginx
+domoticz_port: 8080
+# Enable/Disable https for Domoticz
+domoticz_https: yes
+# The port for Domoticz to run https (-sslwww daemon option). For ports <1024 root privileges are required, better to setup a reverse proxy with for example Nginx
+domoticz_https_port: 8081
+# Path to SSL certificate, if left default the server_cert.pem from Domoticz will be used (-sslcert daemon option)
+domoticz_ssl_cert: "{{ domoticz_download_dir }}/{{ domoticz_src }}/server_cert.pem"
 
-# The name of the untarred NRPE directory
-nrpesrc: "nrpe-nrpe-{{ nrpe_version }}"
-
-# The user which the NRPE daemon runs as
-nrpe_user: nagios
-
-# The group which the NRPE daemon runs as
-nrpe_group: nagios
-
-# Determines if the NRPE daemon will allow clients to specify arguments to commands that are executed. Change to 1 to enable
-nrpe_dont_blame_nrpe: 0
+# Add support for ZWave
+domoticz_zwave_support: no
+# The version of Open-ZWave to be installed (accepts same arguments as version parameter of git module)
+zwave_version: master
+# The Open-ZWave git url
+zwave_url: "https://github.com/OpenZWave/open-zwave.git"
 ```
 
 ## Dependencies
 
-This role doesn't have any strict dependencies but can be used with [wilmardo/nagios](https://galaxy.ansible.com/wilmardo/nagios/).
+None
 
 ## Example Playbook
 
-Install NRPE and setup the allowed_hosts.
-It is better to move the `nrpe_allowed_hosts` to host_vars of your project but this will work.
+Install Domoticz with the default settings
 ```yaml
 - hosts: monitoring-servers
   roles:
-     - { role: wilmardo.nrpe-client, nrpe_allowed_hosts [ 127.0.0.1, 192.168.1.100 ] }
+     - { role: wilmardo.domoticz }
 ```
+After running the playbook Domoticz can be found at http://ipaddress:8080 and https://ipaddress:8081
 
 ## License
 
