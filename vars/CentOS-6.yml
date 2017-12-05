@@ -1,1 +1,2 @@
 ---
+domoticz_init: /etc/init.d/domoticz # Upstart

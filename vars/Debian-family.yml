@@ -16,3 +16,5 @@ domoticz_prerequisite:
   - zlib1g-dev
   - python3-dev
   - libudev-dev
+
+domoticz_init: /etc/init.d/domoticz # Sysvinit

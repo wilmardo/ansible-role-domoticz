@@ -51,7 +51,7 @@ zwave_url: "https://github.com/OpenZWave/open-zwave.git"
 
 ## Dependencies
 
-None
+None but for Domoticz on Centos 6, Python 3.3 out of the [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/python33/) is installed
 
 ## Example Playbook
 
@@ -61,7 +61,7 @@ Install Domoticz with the default settings
   roles:
      - { role: wilmardo.domoticz }
 ```
-After running the playbook Domoticz can be found at http://ipaddress:8080 and https://ipaddress:8081
+After running the playbook, Domoticz can be found for HTTP at http://ipaddress:8080 and HTTPS at https://ipaddress:8081
 
 ## License
 
