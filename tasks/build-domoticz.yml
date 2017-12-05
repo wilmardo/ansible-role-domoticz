@@ -6,9 +6,9 @@
     owner: "{{ domoticz_user }}"
     group: "{{ domoticz_group }}"
 
-- name: GET Domoticz (No SSL validate due lack of SNI support)
+- name: GET Domoticz (No SSL due lack of SNI support)
   get_url:
-    url: "{{ domoticz_url }}"
+    url: "{{ domoticz_url | replace('https', 'http') }}"
     dest: "{{ domoticz_download_dir }}/{{ domoticz_src }}.tar.gz"
     validate_certs: no
   when: (ansible_distribution == 'Debian' and ansible_distribution_major_version == '7') or (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 14.04)
