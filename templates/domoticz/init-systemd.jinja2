@@ -10,7 +10,7 @@
     User={{ domoticz_user }}
     Group={{ domoticz_group }}
     {% if domoticz_https %}
-    ExecStart={{ domoticz_download_dir }}/{{ domoticz_src }}/domoticz -www {{ domoticz_port }} -sslwww {{ domoticz_https_port }}{% if domoticz_ssl_cert != "" %} -sslcert {{ domoticz_ssl_cert }}{% endif %}
+    ExecStart={{ domoticz_download_dir }}/{{ domoticz_src }}/domoticz -www {{ domoticz_port }} -sslwww {{ domoticz_https_port }} -sslcert {{ domoticz_ssl_cert }}
     {% else %}
     ExecStart={{ domoticz_download_dir }}/{{ domoticz_src }}/domoticz -www {{ domoticz_port }} -sslwww 0
     {% endif %}

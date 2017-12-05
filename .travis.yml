@@ -16,11 +16,8 @@ env:
     - LXC_DISTRO=ubuntu LXC_RELEASE=xenial
     - LXC_DISTRO=ubuntu LXC_RELEASE=trusty
     - LXC_DISTRO=ubuntu LXC_RELEASE=precise
-    - LXC_DISTRO=centos LXC_RELEASE=7
-    - LXC_DISTRO=centos LXC_RELEASE=6
-    - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=1.9.0,<2.0.0' #EOL 2016-04-15
-    - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=2.0.0,<2.1.0' #EOL 2016-04-19
-    - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=2.1.0,<2.2.0' #EOL 2017-06-01
+#    - LXC_DISTRO=centos LXC_RELEASE=7
+#    - LXC_DISTRO=centos LXC_RELEASE=6
     - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=2.2.0,<2.3.0' #2.2.x security only
     - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=2.3.0,<2.4.0' #2.3.x bugs and security
     - LXC_DISTRO=ubuntu LXC_RELEASE=xenial ANSIBLE_VERSION='ansible>=2.4.0,<2.5.0' #2.4.x bugs and security

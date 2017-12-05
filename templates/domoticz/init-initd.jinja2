@@ -23,7 +23,7 @@ DAEMON_ARGS="-daemon"
 #DAEMON_ARGS="$DAEMON_ARGS -daemonname $NAME -pidfile $PIDFILE"
 DAEMON_ARGS="$DAEMON_ARGS -www {{ domoticz_port }}"
 {% if domoticz_https %}
-DAEMON_ARGS="$DAEMON_ARGS -sslwww {{ domoticz_https_port }} {% if domoticz_ssl_cert != "" %}-sslcert {{ domoticz_ssl_cert }}{% endif %}"
+DAEMON_ARGS="$DAEMON_ARGS -sslwww {{ domoticz_https_port }} -sslcert {{ domoticz_ssl_cert }}"
 {% else %}
 DAEMON_ARGS="$DAEMON_ARGS -sslwww 0"
 {% endif %}
