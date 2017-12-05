@@ -21,6 +21,20 @@
 
   when: ansible_os_family == "RedHat"
 
+- block:
+
+  - name: Enable jessie backports to be enable to install libssl1.0.0
+    apt_repository:
+      repo: deb http://ftp.de.debian.org/debian jessie-backports main
+      state: present
+
+  - name: Install libssl1.0.0 for Debian 9
+    yum:
+      name: libssl1.0.0
+      state: present
+
+  when: ansible_distribution == "Debian" and ansible_distribution_major_version == "9"
+
 - name: Install packages for Centos 6 to be able to validate SNI
   yum:
     name: "{{ item }}"

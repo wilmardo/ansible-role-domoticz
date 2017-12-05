@@ -1,5 +1,6 @@
 ---
 domoticz_prerequisite:
+  - curl
   - ca-certificates
   - build-essential
   - cmake
