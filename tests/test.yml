@@ -13,6 +13,11 @@
       uri:
         url: "http://{{ inventory_hostname }}:{{ domoticz_port }}"
 
+    - name: Wait for Domoticz to succesfully restart
+      wait_for:
+        port: "{{ domoticz_https_port }}"
+      when: domoticz_https
+
     - name: Test Domoticz HTTPS webinterface
       uri:
         url: "https://{{ inventory_hostname }}:{{ domoticz_https_port }}"

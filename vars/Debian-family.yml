@@ -1,5 +1,6 @@
 ---
 domoticz_prerequisite:
+  - ca-certificates
   - build-essential
   - cmake
   - git
