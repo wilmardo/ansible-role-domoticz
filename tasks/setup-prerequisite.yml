@@ -29,7 +29,7 @@
       state: present
 
   - name: Install libssl1.0.0 for Debian 9
-    yum:
+    apt:
       name: libssl1.0.0
       state: present
 
