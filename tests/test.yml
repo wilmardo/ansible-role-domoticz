@@ -16,6 +16,7 @@
     - name: Test Domoticz HTTPS webinterface
       uri:
         url: "https://{{ inventory_hostname }}:{{ domoticz_https_port }}"
+        validate_certs: no
       when: domoticz_https
 
     - name: Grab system Logs
