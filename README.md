@@ -14,7 +14,7 @@ None.
 ### Default usage
 
 As default Domoticz is installed and running http on port 8080 and https on port 8081 with the default certificate. 
-If you want to adapt this to your needs look at the [Advanced usage](#Advanced usage) section.
+If you want to adapt this to your needs look at the [Advanced usage](#advanced-usage) section.
 
 ### Advanced usage
 
