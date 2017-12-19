@@ -19,6 +19,10 @@ galaxy_info:
     - jessie
 
   galaxy_tags:
-    - tag
+    - domoticz
+    - automation
+    - homeautomation
+    - openzwave
+    - domo
 
 dependencies: []
