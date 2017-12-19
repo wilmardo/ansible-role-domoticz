@@ -1,9 +1,9 @@
-# wilmardo.nrpe-client
+# wilmardo.domoticz
 
 [![Build Status](https://travis-ci.org/wilmardo/ansible-role-domoticz.svg?branch=master)](https://travis-ci.org/wilmardo/ansible-role-domoticz)
 [![Galaxy](https://img.shields.io/badge/galaxy-wilmardo.domoticz-blue.svg)](https://galaxy.ansible.com/wilmardo/domoticz/)
 
-This role installs the NRPE client on a monitoring server. You can use this role as an addon to the [wilmardo/nagios](https://galaxy.ansible.com/wilmardo/nagios/) role.
+This role installs Domoticz Home Automation System and support for OpenZWave can be enabled.
 
 ## Requirements
 
@@ -57,7 +57,7 @@ None but for Domoticz on Centos 6, Python 3.3 out of the [Software Collections](
 
 Install Domoticz with the default settings
 ```yaml
-- hosts: monitoring-servers
+- hosts: domoticz-servers
   roles:
      - { role: wilmardo.domoticz }
 ```
