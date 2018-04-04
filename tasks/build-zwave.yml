@@ -4,7 +4,7 @@
     repo: "{{ zwave_url }}"
     dest: "{{ domoticz_download_dir }}/open-zwave"
     version: "{{ zwave_version }}"
-  register: openzwave_clone
+  notify: make zwave
 
 - name: Create symlink open-zwave-read-only
   file:
@@ -13,10 +13,3 @@
     owner: "{{ domoticz_user }}"
     group: "{{ domoticz_group }}"
     state: link
-
-- name: Make Open-ZWave
-  command: make
-  args:
-    chdir: "{{ domoticz_download_dir }}/open-zwave"
-    creates: "{{ domoticz_download_dir }}/open-zwave/MinOZW"
-  when: openzwave_clone.changed

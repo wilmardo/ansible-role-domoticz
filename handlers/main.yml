@@ -3,3 +3,9 @@
   service:
     name: domoticz
     state: restarted
+
+- name: make zwave
+  command: make
+  args:
+    chdir: "{{ domoticz_download_dir }}/open-zwave"
+    creates: "{{ domoticz_download_dir }}/open-zwave/MinOZW"

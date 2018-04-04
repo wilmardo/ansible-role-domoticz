@@ -11,7 +11,8 @@
     url: "{{ domoticz_url | replace('https', 'http') }}"
     dest: "{{ domoticz_download_dir }}/{{ domoticz_src }}.tar.gz"
     validate_certs: true
-  when: (ansible_distribution == 'Debian' and ansible_distribution_major_version == '7') or (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 14.04)
+  when: (ansible_distribution == 'Debian' and ansible_distribution_major_version == '7') or
+        (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 14.04)
 
 - name: GET Domoticz
   get_url:
@@ -55,7 +56,7 @@
     - name: Setup Python 3.3
       yum:
         name: python33
-        state: latest
+        state: present
 
     - name: Move init script Centos 6
       template:
