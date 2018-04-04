@@ -1,4 +1,5 @@
 .vagrant/
 .idea/
+.molecule/
 *.retry
 *.log

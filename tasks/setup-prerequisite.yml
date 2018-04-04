@@ -1,37 +1,35 @@
 ---
-- block:
-
-    - name: Install prerequisites with apt
-      apt:
-        name: "{{ item }}"
-        state: present
-        update_cache: yes
-      with_items: "{{ domoticz_prerequisite }}"
-
+- name: Install prerequisites with apt
+  apt:
+    name: "{{ domoticz_prerequisite }}"
+    state: present
+    update_cache: true
   when: ansible_os_family == "Debian"
 
+- name: Install prerequisites with yum
+  yum:
+    name: "{{ domoticz_prerequisite }}"
+    state: present
+    update_cache: true
+  when: ansible_distribution == "CentOS"
+
+- name: Install prerequisites with dnf
+  dnf:
+    name: "{{ domoticz_prerequisite }}"
+    state: present
+  when: ansible_distribution == "Fedora"
+
 - block:
 
-    - name: Install prerequisites with yum
-      yum:
-        name: "{{ item }}"
+    - name: Enable jessie backports to be enable to install libssl1.0.0
+      apt_repository:
+        repo: deb http://ftp.de.debian.org/debian jessie-backports main
         state: present
-        update_cache: yes
-      with_items: "{{ domoticz_prerequisite }}"
 
-  when: ansible_os_family == "RedHat"
-
-- block:
-
-  - name: Enable jessie backports to be enable to install libssl1.0.0
-    apt_repository:
-      repo: deb http://ftp.de.debian.org/debian jessie-backports main
-      state: present
-
-  - name: Install libssl1.0.0 for Debian 9
-    apt:
-      name: libssl1.0.0
-      state: present
+    - name: Install libssl1.0.0 for Debian 9
+      apt:
+        name: libssl1.0.0
+        state: present
 
   when: ansible_distribution == "Debian" and ansible_distribution_major_version == "9"
 

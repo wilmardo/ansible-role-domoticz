@@ -10,7 +10,7 @@
   get_url:
     url: "{{ domoticz_url | replace('https', 'http') }}"
     dest: "{{ domoticz_download_dir }}/{{ domoticz_src }}.tar.gz"
-    validate_certs: no
+    validate_certs: true
   when: (ansible_distribution == 'Debian' and ansible_distribution_major_version == '7') or (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 14.04)
 
 - name: GET Domoticz
@@ -24,7 +24,7 @@
     dest: "{{ domoticz_download_dir }}/{{ domoticz_src }}"
     owner: "{{ domoticz_user }}"
     group: "{{ domoticz_group }}"
-    remote_src: yes
+    remote_src: true
 
 - block:
     - name: Move init script for using systemd
@@ -38,8 +38,8 @@
     - name: Autostart Domoticz and restart service
       systemd:
         name: domoticz
-        enabled: yes
-        daemon_reload: yes
+        enabled: true
+        daemon_reload: true
       notify: restart domoticz
 
   when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == "7") or
@@ -66,11 +66,11 @@
         mode: 0775
       notify: restart plexpy
 
-    - name: Autostart Plexpy and restart service
+    - name: Autostart Domoticz and restart service
       service:
-        name: plexpy
-        enabled: yes
-      notify: restart plexpy
+        name: domoticz
+        enabled: true
+      notify: restart domoticz
 
   when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6'
 
@@ -86,7 +86,7 @@
     - name: Autostart Domoticz and restart service
       service:
         name: domoticz
-        enabled: yes
+        enabled: true
       notify: restart domoticz
 
   when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6') or

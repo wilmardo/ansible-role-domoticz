@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: wilmardo
   description: |
@@ -8,15 +9,15 @@ galaxy_info:
   min_ansible_version: 2.2
 
   platforms:
-  - name: Ubuntu
-    versions:
-    - xenial
-    - trusty
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
 
-  - name: Debian
-    versions:
-    - stretch
-    - jessie
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
 
   galaxy_tags:
     - domoticz
