@@ -6,6 +6,8 @@
 
 - include: load-variables.yml
 
+- include: setup-epel.yml
+
 - include: setup-prerequisite.yml
 
 - include: setup-users.yml

@@ -26,3 +26,5 @@ domoticz_zwave_support: no
 zwave_version: master
 # The Open-ZWave git url
 zwave_url: "https://github.com/OpenZWave/open-zwave.git"
+
+boost_install_path: /opt/boost

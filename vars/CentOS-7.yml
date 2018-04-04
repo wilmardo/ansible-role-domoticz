@@ -1,2 +1,2 @@
 ---
-domoticz_init: /etc/rc.d/init.d/domoticz # Systemd
+domoticz_init: /lib/systemd/system/domoticz.service # Systemd

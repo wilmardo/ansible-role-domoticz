@@ -1,0 +1,8 @@
+---
+- name: Get boost library
+  get_url:
+    url: https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz
+    dest: "{{ domoticz_download_dir }}/{{ domoticz_src }}.tar.gz"
+
+- shell: "./bootstrap.sh --prefix={{ boost_install_path }}"
+- shell: ./b2 install
