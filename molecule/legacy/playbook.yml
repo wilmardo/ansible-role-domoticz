@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-role-nagios
+    - role: ansible-role-domoticz
 
   post_tasks:
     - name: Wait for Domoticz to succesfully restart
