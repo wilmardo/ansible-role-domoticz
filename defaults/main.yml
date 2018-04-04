@@ -3,7 +3,7 @@
 domoticz_download_dir: /home/domoticz
 
 # The Domoticz download url
-domoticz_url: https://releases.domoticz.com/releases/release/domoticz_linux_x86_64.tgz
+domoticz_url: https://gandalf.domoticz.com/releases/release/domoticz_linux_x86_64.tgz
 # The name of the untarred Domoticz directory
 domoticz_src: domoticz
 
