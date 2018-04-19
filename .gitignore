@@ -1,5 +1,6 @@
 .vagrant/
 .idea/
 .molecule/
+__pycache__/
 *.retry
 *.log
