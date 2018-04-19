@@ -21,7 +21,7 @@ provisioner:
 
 scenario:
   name: legacy
-#verifier:
-#  name: testinfra
-#  lint:
-#    name: flake8
+
+verifier:
+  name: goss
+  enabled: false
