@@ -1,1 +1,22 @@
 ---
+#FIXME: Not yet correct
+domoticz_prerequisite:
+  - curl
+  - ca-certificates
+  - gcc
+  - gcc-c++
+  - make
+  - openssl-devel
+  - cmake
+  - git
+  - boost-devel
+  - boost-thread
+  - boost-system
+  - sqlite-devel
+  - curl
+  - libcurl-devel
+  - openssl-devel
+  - libusb-devel
+  - zlib-devel
+  - python34-devel
+  - libudev-devel
