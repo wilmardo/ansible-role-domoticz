@@ -1,23 +1,32 @@
 ---
 dependency:
   name: galaxy
+  options:
+    role-file: requirements.yml
 
 driver:
   name: docker
 
 lint:
   name: yamllint
+  options:
+    config-file: molecule/.yamllint
 
 platforms:
   - name: Ubuntu1404
-    image: wilmardo/docker-ubuntu-ansible:14.04
+    image: lansible/ubuntu:14.04
 
 provisioner:
   name: ansible
   options:
-    v: true
+    vv: true
+  config_options:
+    defaults:
+      callback_whitelist: profile_tasks
   lint:
     name: ansible-lint
+    options:
+      c: molecule/.ansible-lint
 
 scenario:
   name: legacy
