@@ -10,7 +10,7 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/.yamllint
+    config-file: molecule/_rules/.yamllint
 
 platforms:
   - name: Ubuntu1404
@@ -19,14 +19,14 @@ platforms:
 provisioner:
   name: ansible
   options:
-    vv: true
+    v: true
   config_options:
     defaults:
       callback_whitelist: profile_tasks
   lint:
     name: ansible-lint
     options:
-      c: molecule/.ansible-lint
+      c: molecule/_rules/.ansible-lint
 
 scenario:
   name: legacy
