@@ -20,6 +20,10 @@ provisioner:
   name: ansible
   options:
     v: true
+  playbooks:
+    create: ../default/create.yml
+    destroy: ../default/destroy.yml
+    converge: ../default/playbook.yml
   config_options:
     defaults:
       callback_whitelist: profile_tasks

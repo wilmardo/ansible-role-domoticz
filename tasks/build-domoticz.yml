@@ -30,7 +30,7 @@
 - block:
     - name: Move init script for using systemd
       template:
-        src: domoticz/init-systemd.jinja2
+        src: domoticz/init-systemd.j2
         dest: "{{ domoticz_init }}"
         owner: root
         group: root
@@ -60,7 +60,7 @@
 
     - name: Move init script Centos 6
       template:
-        src: domoticz/init-centos-fedora.jinja2
+        src: domoticz/init-centos-fedora.j2
         dest: "{{ domoticz_init }}"
         owner: root
         group: root
@@ -78,7 +78,7 @@
 - block:
     - name: Move init script for using init.d
       template:
-        src: domoticz/init-initd.jinja2
+        src: domoticz/init-initd.j2
         dest: "{{ domoticz_init }}"
         owner: root
         group: root
