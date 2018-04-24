@@ -11,3 +11,5 @@ rules:
     max: 1
   line-length: disable
   trailing-spaces: enable
+  truthy:
+    level: error
