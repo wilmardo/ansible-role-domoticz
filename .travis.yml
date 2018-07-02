@@ -13,7 +13,7 @@ matrix:
   include:
     - env: TAG=2.4  # 2.4.x bugs and security
     - env: TAG=2.5  # 2.4.x bugs and security
-#    - env: TAG:2.6  # Development
+#    - env: TAG=2.6  # Development
 
 services:
   - docker
@@ -25,9 +25,11 @@ addons:
     packages:
       - docker-ce
 
+before_script:
+  - sudo service docker stop
+  - sudo dockerd -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375 </dev/null &>/dev/null &
+
 script:
-  - sudo echo DOCKER_OPTS="-H tcp://127.0.0.1:2375" >> /etc/default/docker
-  - sudo service docker restart
   - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
 
 notifications:

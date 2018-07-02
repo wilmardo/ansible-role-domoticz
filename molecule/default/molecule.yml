@@ -13,19 +13,19 @@ lint:
     config-file: ${DEV_MOLECULE_RULES}/yaml-lint.yml
 
 platforms:
-  - name: tautulli-Debian9
+  - name: domoticz-Debian9
     image: lansible/debian:9
 
-  - name: tautulli-Debian8
+  - name: domoticz-Debian8
     image: lansible/debian:8
 
-  - name: tautulli-Ubuntu1604
+  - name: domoticz-Ubuntu1604
     image: lansible/ubuntu:16.04
 
-#  - name: tautulli-Ubuntu1404
+#  - name: domoticz-Ubuntu1404
 #    image: lansible/ubuntu:14.04
 #
-#  - name: tautulli-Ubuntu1204
+#  - name: domoticz-Ubuntu1204
 #    image: lansible/ubuntu:12.04
 
 provisioner:
