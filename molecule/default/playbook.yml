@@ -23,10 +23,3 @@
         url: "https://{{ inventory_hostname }}:{{ domoticz_https_port }}"
         validate_certs: false
       when: domoticz_https
-
-    - name: Grab system Logs
-      shell: "journalctl -xn || cat /var/log/messages || cat /var/log/syslog"
-      environment:
-        - PAGER: cat
-      changed_when: false
-      ignore_errors: true
