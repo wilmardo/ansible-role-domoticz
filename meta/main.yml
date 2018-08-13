@@ -12,7 +12,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-#        - trusty
+        # - trusty
 
     - name: Debian
       versions:
